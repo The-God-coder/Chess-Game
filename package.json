@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/The-God-coder/Chess-Game/issues"
   },
-  "homepage": "https://github.com/The-God-coder/Chess-Game#readme"
+  "homepage": "https://github.com/The-God-coder/Chess-Game#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

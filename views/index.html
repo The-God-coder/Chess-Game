@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <style>
+            .chess-board { border-spacing: 0; border-collapse: collapse; }
+            .chess-board th { padding: .5em; }
+            .chess-board td { border: 1px solid; width: 2em; height: 2em; }
+            .chess-board .light { background: #eee; }
+            .chess-board .dark { background: #0a780a }
+        </style>
+        <script>
+            function allowDrop(ev) {
+              ev.preventDefault();
+            }
+            
+            function drag(ev) {
+              ev.dataTransfer.setData("text", ev.target.id);
+            }
+            
+            function drop(ev) {
+              ev.preventDefault();
+              
+              console.log(document.getElementById(ev.target.id).hasChildNodes(), ev.target.id)
+              // Checks to make sure that the node dragging onto is not a IMG 
+              if (ev.target.tagName != "IMG") { // TODO: Change this for piece capturing later.
+                  if ((!(document.getElementById(ev.target.id).hasChildNodes()))) { // Makes sure that the piece cannot be put into the a box that already has a piece in in
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+                  }
+              }
+              
+              
+              
+            }
+            </script>
+    </head>
+    <body>
+        <table class="chess-board">
+            <tbody>
+                <tr>
+                    <th></th>
+                    <th>a</th>
+                    <th>b</th>
+                    <th>c</th>
+                    <th>d</th>
+                    <th>e</th>
+                    <th>f</th>
+                    <th>g</th>
+                    <th>h</th>
+                </tr>
+                <tr>
+                    <th>8</th>
+                    <td class="light" id="a8" ondrop="drop(event)" ondragover="allowDrop(event)" ><img id="RookBlack1" src="/2000px-Chess_Pieces_Sprite_11.png" draggable="true" ondragstart="drag(event)" width=26  lenght=26></td>
+                    <td class="dark"  id="b8" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="KnightBlack1" src="/2000px-Chess_Pieces_Sprite_10.png" draggable="true" ondragstart="drag(event)" width=26  lenght=26></td>
+                    <td class="light" id="c8" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="BishopBlack1" src="/2000px-Chess_Pieces_Sprite_09.png" draggable="true" ondragstart="drag(event)" width=26  lenght=26></td>
+                    <td class="dark"  id="d8" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="KingBlack" src="/2000px-Chess_Pieces_Sprite_07.png" draggable="true" ondragstart="drag(event)" width=26  lenght=26></td>
+                    <td class="light" id="e8" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="QueenBlack" src="/2000px-Chess_Pieces_Sprite_08.png" draggable="true" ondragstart="drag(event)" width=26  lenght=26></td>
+                    <td class="dark"  id="f8" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="BishopBlack2" src="/2000px-Chess_Pieces_Sprite_09.png" draggable="true" ondragstart="drag(event)" width=26  lenght=26></td>
+                    <td class="light" id="g8" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="KnightBlack2" src="/2000px-Chess_Pieces_Sprite_10.png" draggable="true" ondragstart="drag(event)" width=26  lenght=26></td>
+                    <td class="dark"  id="h8" ondrop="drop(event)" ondragover="allowDrop(event)"><img id="RookBlack2" src="/2000px-Chess_Pieces_Sprite_11.png" draggable="true" ondragstart="drag(event)" width=26  lenght=26></td>
+                </tr>
+                <tr>
+                    <th>7</th>
+                    <td class="dark"  id="a7" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="b7" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="c7" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="d7" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="e7" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="f7" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="g7" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="h7" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+                <tr>
+                    <th>6</th>
+                    <td class="light" id="a6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="b6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="c6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="d6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="e6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="f6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="g6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="h6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <td class="dark"  id="a5" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="b5" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="c5" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="d5" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="e5" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="f5" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="g5" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="h5" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <td class="light" id="a4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="b4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="c4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="d4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="e4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="f4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="g4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="h4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td class="dark"  id="a3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="b3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="c3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="d3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="e3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="f3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="g3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="h3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td class="light" id="a2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="b2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="c2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="d2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="e2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="f2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="g2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="h2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td class="dark"  id="a1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="b1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="c1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="d1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="e1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="f1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="dark"  id="g1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td class="light" id="h1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
